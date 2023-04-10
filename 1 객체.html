@@ -3,6 +3,32 @@
 <head>
 <title>병실 생활 원인</title>
 <meta charset="utf-8">
+<script>
+function setColor(color){
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while(i < alist.length){
+    alist[i].style.color='powderblue';
+    i=i+1;}
+}
+function dark_lighthandler(self){
+  var target=document.querySelector('body')
+  if(self.value === 'dark'){
+    target.style.backgroundColor='black';
+    target.style.color='white';
+    self.value = 'light';
+
+    setColor('powderblue');
+
+   } else {
+    target.style.backgroundColor='white';
+    target.style.color='black';
+    self.value = 'dark'
+    
+    setColor('blue');
+   }
+}
+</script>
 </head>
 
 <link rel="stylesheet" href="style.css">
@@ -19,29 +45,7 @@
 "> 아래와 같이 조건문 통해 하나의 버튼으로 생략 가능
 -->
 <input id="dark_light" type="button" value="dark" onclick="
-  if(document.querySelector('#dark_light').value === 'dark'){
-    document.querySelector('body').style.backgroundColor='black';
-    document.querySelector('body').style.color='white';
-    document.querySelector('#dark_light').value = 'light';
-
-    var alist = document.querySelectorAll('a');
-    var i = 0;
-    while(i < alist.length){
-    alist[i].style.color='powderblue';
-    i=i+1;}
-
-   } else {
-    document.querySelector('body').style.backgroundColor='white';
-    document.querySelector('body').style.color='black';
-    document.querySelector('#dark_light').value = 'dark'
-    
-    var alist = document.querySelectorAll('a');
-    var i = 0;
-    while(i < alist.length){
-    alist[i].style.color='blue';
-    i=i+1;}
-
-   }
+dark_lighthandler(this)
 ">
 
 <h1><a href="index.html">병실 생활 원인</a></h1>    
